@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+REFERENCE DOCUMENT ONLY
+rundll32 comsvcs.dll MiniDump lsass_pid fixture.dmp full

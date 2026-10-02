@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+REFERENCE DOCUMENT ONLY
+$s = New-PSSession -ComputerName host.invalid; Invoke-Command -Session $s -ScriptBlock { Get-Date }

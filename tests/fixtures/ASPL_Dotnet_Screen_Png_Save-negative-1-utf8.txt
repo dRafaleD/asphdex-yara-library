@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+$bitmap.Save("drawing.png", [System.Drawing.Imaging.ImageFormat]::Png)

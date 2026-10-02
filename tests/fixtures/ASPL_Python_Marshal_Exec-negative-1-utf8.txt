@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT BENIGN CONTEXT
+import marshal; marshal.dump( cache_object, local_file )

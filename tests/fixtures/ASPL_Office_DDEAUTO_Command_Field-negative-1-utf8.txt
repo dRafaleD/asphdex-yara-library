@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT BENIGN CONTEXT
+<w:instrText> HYPERLINK https://example.invalid/ </w:instrText>

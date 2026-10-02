@@ -1,0 +1,10 @@
+.venv/
+.venv312/
+__pycache__/
+outputs/
+dist/
+*.pyc
+*.tmp
+.env
+.env.*
+!/.env.example

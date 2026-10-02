@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: REFERENCE DOCUMENT ONLY
+netsh wlan export profile key=clear folder=fixture

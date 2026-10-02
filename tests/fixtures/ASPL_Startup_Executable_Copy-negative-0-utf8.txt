@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+copy "readme.txt" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\readme.txt"

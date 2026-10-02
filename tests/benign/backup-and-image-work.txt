@@ -1,0 +1,10 @@
+Harmless backup and image workflow descriptions and partial API snippets.
+copy \\files.example.invalid\DavWWWRoot\report.txt report.txt
+pushd \\files.example.invalid\DavWWWRoot\documents && dir
+Image.open('photo.png').resize((320, 240)).save('preview.png')
+$bitmap = [System.Drawing.Bitmap]::new('local-photo.png'); $color = $bitmap.GetPixel(0,0)
+System.IO.File WriteAllBytes: generic local image output API reference
+SELECT action_url, username_value, password_value FROM logins
+Credential export examples can resemble stealers. No transfer operation follows this query.
+7z a local-backup.zip ./documents
+ssh -L 8080:localhost:80 admin@example.invalid

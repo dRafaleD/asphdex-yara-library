@@ -1,0 +1,4 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: REFERENCE DOCUMENT ONLY
+reg save HKLM\SAM fixture-sam
+reg save HKLM\SYSTEM fixture-system

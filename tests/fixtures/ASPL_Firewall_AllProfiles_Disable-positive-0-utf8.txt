@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+netsh.exe advfirewall set allprofiles state off

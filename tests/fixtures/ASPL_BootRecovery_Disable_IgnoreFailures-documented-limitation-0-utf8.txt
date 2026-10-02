@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: bcdedit.exe /set {default} recoveryenabled no && bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures

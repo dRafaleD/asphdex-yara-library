@@ -1,0 +1,282 @@
+[
+  {
+    "rule": "ASPL_PowerShell_Encoded_Hidden_Launch",
+    "file": "rules/behavior/execution/powershell_encoded_hidden_launch.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\npowershell\n[INERT_SEPARATOR]\n-EncodedCommand\n[INERT_SEPARATOR]\n-WindowStyle Hidden\n[INERT_SEPARATOR]\n-NoProfile",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\npowershell\n[INERT_SEPARATOR]\n-EncodedCommand\n[INERT_SEPARATOR]\n-WindowStyle Hidden",
+      "INERT BENIGN CONTEXT\npowershell -NoProfile -WindowStyle Normal -File maintenance.ps1"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_PowerShell_Reflection_Base64_Assembly",
+    "file": "rules/behavior/execution/powershell_reflection_base64_assembly.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n[Reflection.Assembly]::Load(\n[INERT_SEPARATOR]\nFromBase64String(\n[INERT_SEPARATOR]\nEntryPoint.Invoke(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n[Reflection.Assembly]::Load(\n[INERT_SEPARATOR]\nFromBase64String(",
+      "INERT BENIGN CONTEXT\n[Reflection.Assembly]::LoadFile( local-tool.dll GetTypes("
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_PowerShell_AMSI_Reflection_Field",
+    "file": "rules/behavior/execution/powershell_amsi_reflection_field.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nSystem.Management.Automation.AmsiUtils\n[INERT_SEPARATOR]\namsiInitFailed\n[INERT_SEPARATOR]\nNonPublic,Static\n[INERT_SEPARATOR]\nSetValue(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nSystem.Management.Automation.AmsiUtils\n[INERT_SEPARATOR]\namsiInitFailed\n[INERT_SEPARATOR]\nNonPublic,Static",
+      "INERT BENIGN CONTEXT\nGetType( System.Management.Automation.PSObject NonPublic,Static GetFields("
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Regsvr32_Remote_Scriptlet",
+    "file": "rules/behavior/execution/regsvr32_remote_scriptlet.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nregsvr32\n[INERT_SEPARATOR]\n/i:https://\n[INERT_SEPARATOR]\nscrobj.dll\n[INERT_SEPARATOR]\n/n",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nregsvr32\n[INERT_SEPARATOR]\n/i:https://\n[INERT_SEPARATOR]\nscrobj.dll",
+      "INERT BENIGN CONTEXT\nregsvr32 /s local-component.dll"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Rundll32_MSHTML_Script",
+    "file": "rules/behavior/execution/rundll32_mshtml_script.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nrundll32\n[INERT_SEPARATOR]\njavascript:\n[INERT_SEPARATOR]\nmshtml,RunHTMLApplication\n[INERT_SEPARATOR]\nActiveXObject(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nrundll32\n[INERT_SEPARATOR]\njavascript:\n[INERT_SEPARATOR]\nmshtml,RunHTMLApplication",
+      "INERT BENIGN CONTEXT\nrundll32 shell32.dll,Control_RunDLL display.cpl"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Mshta_Remote_HTA",
+    "file": "rules/behavior/execution/mshta_remote_hta.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nmshta \n[INERT_SEPARATOR]\nhttps://\n[INERT_SEPARATOR]\n.hta",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nmshta \n[INERT_SEPARATOR]\nhttps://",
+      "INERT BENIGN CONTEXT\nmshta C:\\maintenance\\local.hta"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_WSH_HTTP_Stream_Shell",
+    "file": "rules/behavior/execution/wsh_http_stream_shell.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nMSXML2.XMLHTTP\n[INERT_SEPARATOR]\nresponseBody\n[INERT_SEPARATOR]\nADODB.Stream\n[INERT_SEPARATOR]\nSaveToFile(\n[INERT_SEPARATOR]\nWScript.Shell",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nMSXML2.XMLHTTP\n[INERT_SEPARATOR]\nresponseBody\n[INERT_SEPARATOR]\nADODB.Stream\n[INERT_SEPARATOR]\nSaveToFile(",
+      "INERT BENIGN CONTEXT\nWScript.Shell INERT Popup( maintenance complete"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Python_Marshal_Exec",
+    "file": "rules/behavior/execution/python_marshal_exec.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nexec(\n[INERT_SEPARATOR]\nmarshal.loads(\n[INERT_SEPARATOR]\nbase64.b64decode(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nexec(\n[INERT_SEPARATOR]\nmarshal.loads(",
+      "INERT BENIGN CONTEXT\nimport marshal; marshal.dump( cache_object, local_file )"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Bash_TCP_Interactive_Redirect",
+    "file": "rules/behavior/execution/bash_tcp_interactive_redirect.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nbash -i\n[INERT_SEPARATOR]\n/dev/tcp/\n[INERT_SEPARATOR]\n0>&1",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nbash -i\n[INERT_SEPARATOR]\n/dev/tcp/",
+      "INERT BENIGN CONTEXT\nbash local-healthcheck.sh INERT /dev/tcp/localhost/80"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Node_VM_Base64_Script",
+    "file": "rules/behavior/execution/node_vm_base64_script.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nvm.runInThisContext(\n[INERT_SEPARATOR]\nBuffer.from(\n[INERT_SEPARATOR]\nbase64\n[INERT_SEPARATOR]\ntoString(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nvm.runInThisContext(\n[INERT_SEPARATOR]\nBuffer.from(\n[INERT_SEPARATOR]\nbase64",
+      "INERT BENIGN CONTEXT\nvm.runInThisContext( compiled_trusted_source );"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_PHP_Request_System_Call",
+    "file": "rules/behavior/webshell/php_request_system_call.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<?php\n[INERT_SEPARATOR]\nsystem($_REQUEST[",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<?php",
+      "INERT BENIGN CONTEXT\n<?php INERT htmlspecialchars($_REQUEST["
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_PHP_Request_Eval_Call",
+    "file": "rules/behavior/webshell/php_request_eval_call.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<?php\n[INERT_SEPARATOR]\neval($_POST[",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<?php",
+      "INERT BENIGN CONTEXT\n<?php INERT json_decode($_POST["
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_ASP_Request_WScript_Exec",
+    "file": "rules/behavior/webshell/asp_request_wscript_exec.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<%\n[INERT_SEPARATOR]\nWScript.Shell\n[INERT_SEPARATOR]\n.Exec(Request(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<%\n[INERT_SEPARATOR]\nWScript.Shell",
+      "INERT BENIGN CONTEXT\n<% INERT Server.HTMLEncode(Request(\"name\")) INERT"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_ASPNET_Request_Process_Start",
+    "file": "rules/behavior/webshell/aspnet_request_process_start.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<%@\n[INERT_SEPARATOR]\nSystem.Diagnostics.Process\n[INERT_SEPARATOR]\nRequest[\n[INERT_SEPARATOR]\nArguments =\n[INERT_SEPARATOR]\ncmd.exe",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<%@\n[INERT_SEPARATOR]\nSystem.Diagnostics.Process\n[INERT_SEPARATOR]\nRequest[\n[INERT_SEPARATOR]\nArguments =",
+      "INERT BENIGN CONTEXT\n<%@ INERT Request[ INERT Server.HtmlEncode( INERT"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_JSP_Request_Runtime_Exec",
+    "file": "rules/behavior/webshell/jsp_request_runtime_exec.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<%\n[INERT_SEPARATOR]\nRuntime.getRuntime().exec(request.getParameter(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<%",
+      "INERT BENIGN CONTEXT\n<% INERT escapeHtml(request.getParameter( INERT"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Flask_Request_OS_Popen",
+    "file": "rules/behavior/webshell/flask_request_os_popen.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n@app.route(\n[INERT_SEPARATOR]\nos.popen(request.args.get(\n[INERT_SEPARATOR]\nread(",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n@app.route(\n[INERT_SEPARATOR]\nos.popen(request.args.get(",
+      "INERT BENIGN CONTEXT\n@app.route( INERT request.args.get( INERT render_template("
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_MSBuild_Inline_Task_Assembly",
+    "file": "rules/behavior/exploit-artifacts/msbuild_inline_task_assembly.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n<UsingTask\n[INERT_SEPARATOR]\nCodeTaskFactory\n[INERT_SEPARATOR]\nMicrosoft.Build.Tasks\n[INERT_SEPARATOR]\nLanguage=\"cs\"",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n<UsingTask\n[INERT_SEPARATOR]\nCodeTaskFactory\n[INERT_SEPARATOR]\nMicrosoft.Build.Tasks",
+      "INERT BENIGN CONTEXT\n<Project><Target Name=\"Build\"><Message Text=\"normal build\"/></Target></Project>"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_XSL_JScript_Shell_Extension",
+    "file": "rules/behavior/exploit-artifacts/xsl_jscript_shell_extension.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\nurn:schemas-microsoft-com:xslt\n[INERT_SEPARATOR]\nms:script\n[INERT_SEPARATOR]\nlanguage=\"JScript\"\n[INERT_SEPARATOR]\nWScript.Shell",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\nurn:schemas-microsoft-com:xslt\n[INERT_SEPARATOR]\nms:script\n[INERT_SEPARATOR]\nlanguage=\"JScript\"",
+      "INERT BENIGN CONTEXT\n<xsl:stylesheet><xsl:value-of select=\"title\"/></xsl:stylesheet>"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_Office_DDEAUTO_Command_Field",
+    "file": "rules/behavior/exploit-artifacts/office_ddeauto_command_field.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\ninstrText\n[INERT_SEPARATOR]\nDDEAUTO\n[INERT_SEPARATOR]\ncmd.exe\n[INERT_SEPARATOR]\n/c",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\ninstrText\n[INERT_SEPARATOR]\nDDEAUTO\n[INERT_SEPARATOR]\ncmd.exe",
+      "INERT BENIGN CONTEXT\n<w:instrText> HYPERLINK https://example.invalid/ </w:instrText>"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  },
+  {
+    "rule": "ASPL_PDF_OpenAction_JavaScript_Object",
+    "file": "rules/behavior/exploit-artifacts/pdf_openaction_javascript_object.yar",
+    "positive": "INERT TEST DATA - DO NOT EXECUTE\n%PDF-\n[INERT_SEPARATOR]\n/OpenAction\n[INERT_SEPARATOR]\n/S /JavaScript\n[INERT_SEPARATOR]\n/JS",
+    "negative": [
+      "INERT NEAR MISS - final required marker absent\n%PDF-\n[INERT_SEPARATOR]\n/OpenAction\n[INERT_SEPARATOR]\n/S /JavaScript",
+      "INERT BENIGN CONTEXT\n%PDF-1.7 INERT /OpenAction /S /GoTo /D [0 /Fit]"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert text verifies literal matches only; false positives and evasions in real corpora are not measured. Comments or documentation containing every marker may match. No execution, data-flow, exploit, or malware attribution claim."
+  }
+]

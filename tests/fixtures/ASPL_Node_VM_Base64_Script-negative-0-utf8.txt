@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+vm.runInThisContext(
+[INERT_SEPARATOR]
+Buffer.from(
+[INERT_SEPARATOR]
+base64

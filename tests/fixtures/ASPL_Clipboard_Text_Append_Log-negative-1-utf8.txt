@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Add-Content -Path notes.txt -Value "meeting notes"

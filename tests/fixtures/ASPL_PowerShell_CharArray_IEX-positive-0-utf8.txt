@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+IEX ([char]73 + [char]78 + [char]69 + [char]82 + [char]84)

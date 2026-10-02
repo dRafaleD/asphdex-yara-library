@@ -1,0 +1,10 @@
+Harmless application fragments with no request-to-command relationship.
+<?php echo htmlspecialchars($_GET['name']); ?>
+<?php $status = 'system status: online'; ?>
+<html><script>document.getElementById('status').textContent = 'ready';</script></html>
+request.getParameter("theme")
+Runtime.getRuntime().availableProcessors()
+Request.QueryString["language"]
+Process.Start("help-viewer.exe")
+app.route('/status')
+return {'healthy': True}

@@ -1,0 +1,5 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+[Reflection.Assembly]::Load(
+[INERT_SEPARATOR]
+FromBase64String(

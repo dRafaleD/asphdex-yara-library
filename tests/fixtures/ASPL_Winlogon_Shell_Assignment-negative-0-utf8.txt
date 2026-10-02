@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell

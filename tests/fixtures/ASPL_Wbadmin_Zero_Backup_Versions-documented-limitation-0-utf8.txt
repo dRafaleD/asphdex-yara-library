@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: wbadmin.exe delete backup -keepVersions:0 -quiet

@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT BENIGN CONTEXT
+@app.route( INERT request.args.get( INERT render_template(

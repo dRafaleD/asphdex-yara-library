@@ -1,0 +1,10 @@
+This harmless glossary names security techniques without complete command chains.
+PowerShell, Base64, reflection, WScript, shell, subprocess and marshal.
+Registry Run keys, scheduled tasks, services, startup and logging are common
+administrative concepts. They do not establish malicious use.
+Browser databases include Login Data, Web Data, History and Cookies.
+Tools may provide credential migration with informed owner consent.
+Ransomware may inhibit recovery. Delete shadows and vssadmin are discussed here,
+but this prose is not a syntactically complete deletion command.
+Defender settings, AMSI, auditpol and event logs may be managed by administrators.
+Full quoted command artifacts can still match; those are separate limitation tests.

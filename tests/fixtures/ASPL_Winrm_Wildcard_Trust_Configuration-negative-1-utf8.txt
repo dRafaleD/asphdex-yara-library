@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Enable-PSRemoting; Set-Item WSMan:\localhost\Client\TrustedHosts -Value "host.invalid"

@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT BENIGN CONTEXT
+<xsl:stylesheet><xsl:value-of select="title"/></xsl:stylesheet>

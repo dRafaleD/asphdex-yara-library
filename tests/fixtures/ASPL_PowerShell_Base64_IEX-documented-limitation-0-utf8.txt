@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: IEX ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String("SU5FUlQgREVNTw==")))

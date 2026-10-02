@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: REFERENCE DOCUMENT ONLY
+sqlite3 "Login Data" "SELECT origin_url, username_value, password_value FROM logins"

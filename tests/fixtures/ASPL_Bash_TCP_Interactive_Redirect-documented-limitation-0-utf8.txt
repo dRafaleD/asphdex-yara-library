@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+bash -i
+[INERT_SEPARATOR]
+/dev/tcp/
+[INERT_SEPARATOR]
+0>&1

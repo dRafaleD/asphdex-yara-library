@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+powershell
+[INERT_SEPARATOR]
+-EncodedCommand
+[INERT_SEPARATOR]
+-WindowStyle Hidden

@@ -1,0 +1,7 @@
+* text=auto
+*.yar text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+tests/fixtures/*.txt -text whitespace=-blank-at-eol,-blank-at-eof

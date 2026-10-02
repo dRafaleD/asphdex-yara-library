@@ -1,0 +1,9 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT TEST DATA - DO NOT EXECUTE
+urn:schemas-microsoft-com:xslt
+[INERT_SEPARATOR]
+ms:script
+[INERT_SEPARATOR]
+language="JScript"
+[INERT_SEPARATOR]
+WScript.Shell

@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v InertDemo /d "powershell.exe -File inert.ps1"

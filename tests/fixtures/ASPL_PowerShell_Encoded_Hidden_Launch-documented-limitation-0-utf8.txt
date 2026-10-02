@@ -1,0 +1,9 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+powershell
+[INERT_SEPARATOR]
+-EncodedCommand
+[INERT_SEPARATOR]
+-WindowStyle Hidden
+[INERT_SEPARATOR]
+-NoProfile

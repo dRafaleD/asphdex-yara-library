@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: REFERENCE DOCUMENT ONLY
+Set-ItemProperty fixture-registry fDenyTSConnections -Value 0; Enable-NetFirewallRule -DisplayGroup "Remote Desktop"

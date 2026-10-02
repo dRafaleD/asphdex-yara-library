@@ -1,0 +1,9 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+regsvr32
+[INERT_SEPARATOR]
+/i:https://
+[INERT_SEPARATOR]
+scrobj.dll
+[INERT_SEPARATOR]
+/n

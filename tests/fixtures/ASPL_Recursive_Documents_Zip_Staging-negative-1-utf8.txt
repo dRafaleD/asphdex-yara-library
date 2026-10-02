@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Compress-Archive -Path release-assets -DestinationPath release.zip

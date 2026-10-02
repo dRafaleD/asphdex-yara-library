@@ -1,0 +1,5 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+bash -i
+[INERT_SEPARATOR]
+/dev/tcp/

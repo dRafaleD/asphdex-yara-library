@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+REFERENCE DOCUMENT ONLY
+$bitmap.CopyFromScreen(); $bitmap.Save("fixture.png", [System.Drawing.Imaging.ImageFormat]::Png)

@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+sqlite3 inventory.db "SELECT name FROM assets"

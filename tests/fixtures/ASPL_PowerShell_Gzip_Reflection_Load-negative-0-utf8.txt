@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+$gzip = New-Object System.IO.Compression.GzipStream($input,[IO.Compression.CompressionMode]::Decompress); $gzip.CopyTo($output); [IO.File]::WriteAllBytes("archive-copy.bin",$output.ToArray())

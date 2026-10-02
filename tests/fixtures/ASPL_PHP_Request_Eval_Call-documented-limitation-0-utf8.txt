@@ -1,0 +1,5 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+<?php
+[INERT_SEPARATOR]
+eval($_POST[

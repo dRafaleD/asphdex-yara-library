@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+rundll32
+[INERT_SEPARATOR]
+javascript:
+[INERT_SEPARATOR]
+mshtml,RunHTMLApplication

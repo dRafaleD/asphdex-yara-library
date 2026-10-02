@@ -1,0 +1,282 @@
+[
+  {
+    "rule": "ASPL_Registry_Run_Interpreter",
+    "file": "rules/behavior/persistence/registry_run_interpreter.yar",
+    "positive": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v InertDemo /d \"powershell.exe -File inert.ps1\"",
+    "negative": [
+      "reg query \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\"",
+      "reg add \"HKCU\\Software\\Example\" /v InertDemo /d \"powershell.exe -File inert.ps1\""
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Winlogon_Shell_Assignment",
+    "file": "rules/behavior/persistence/winlogon_shell_assignment.yar",
+    "positive": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Shell /t REG_SZ /d \"inert-shell.exe\"",
+    "negative": [
+      "reg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Shell",
+      "reg add \"HKLM\\Software\\Example\" /v Shell /d inert-shell.exe"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Service_Remote_BinPath",
+    "file": "rules/behavior/persistence/service_remote_binpath.yar",
+    "positive": "sc.exe create InertDemo binPath= \"\\\\files.example.invalid\\research\\inert-service.exe\"",
+    "negative": [
+      "sc.exe query InertDemo",
+      "sc.exe create LocalDemo binPath= \"C:\\Tools\\local-service.exe\""
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_ScheduledTask_Interpreter_Action",
+    "file": "rules/behavior/persistence/scheduledtask_interpreter_action.yar",
+    "positive": "schtasks.exe /create /tn InertDemo /tr \"powershell.exe -File inert.ps1\" /sc onlogon",
+    "negative": [
+      "schtasks.exe /query /tn InertDemo",
+      "schtasks.exe /create /tn BackupDemo /tr \"backup.exe\" /sc daily"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Startup_Executable_Copy",
+    "file": "rules/behavior/persistence/startup_executable_copy.yar",
+    "positive": "copy \"inert.exe\" \"%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\inert.exe\"",
+    "negative": [
+      "copy \"readme.txt\" \"%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\readme.txt\"",
+      "copy \"inert.exe\" \"C:\\Backup\\inert.exe\""
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Defender_Realtime_Disable",
+    "file": "rules/behavior/defense-evasion/defender_realtime_disable.yar",
+    "positive": "Set-MpPreference -DisableRealtimeMonitoring $true",
+    "negative": [
+      "Set-MpPreference -DisableRealtimeMonitoring $false",
+      "Get-MpPreference # DisableRealtimeMonitoring"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Defender_Temp_Path_Exclusion",
+    "file": "rules/behavior/defense-evasion/defender_temp_path_exclusion.yar",
+    "positive": "Add-MpPreference -ExclusionPath \"C:\\Users\\Example\\AppData\\Local\\Temp\\inert\"",
+    "negative": [
+      "Get-MpPreference # ExclusionPath Temp",
+      "Add-MpPreference -ExclusionPath \"C:\\ApprovedBackup\""
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_EventLog_Security_System_Clear",
+    "file": "rules/behavior/defense-evasion/eventlog_security_system_clear.yar",
+    "positive": "wevtutil.exe cl Security",
+    "negative": [
+      "wevtutil.exe qe Security",
+      "wevtutil.exe cl InertApplicationLog"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_AuditPolicy_Success_Failure_Disable",
+    "file": "rules/behavior/defense-evasion/auditpolicy_success_failure_disable.yar",
+    "positive": "auditpol.exe /set /category:* /success:disable /failure:disable",
+    "negative": [
+      "auditpol.exe /get /category:*",
+      "auditpol.exe /set /category:* /success:enable /failure:enable"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Firewall_AllProfiles_Disable",
+    "file": "rules/behavior/defense-evasion/firewall_allprofiles_disable.yar",
+    "positive": "netsh.exe advfirewall set allprofiles state off",
+    "negative": [
+      "netsh.exe advfirewall show allprofiles",
+      "netsh.exe advfirewall set allprofiles state on"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_AMSI_Reflection_InitFlag_Set",
+    "file": "rules/behavior/defense-evasion/amsi_reflection_initflag_set.yar",
+    "positive": "$field = [Ref].Assembly.GetType(\"System.Management.Automation.AmsiUtils\").GetField(\"amsiInitFailed\",\"NonPublic,Static\"); $field.SetValue($null,$true)",
+    "negative": [
+      "$name = \"System.Management.Automation.AmsiUtils\"; Write-Output \"amsiInitFailed\"",
+      "$field = [Ref].Assembly.GetType(\"System.Management.Automation.AmsiUtils\").GetField(\"amsiInitFailed\",\"NonPublic,Static\"); $field.GetValue($null)"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Vssadmin_All_Shadow_Delete",
+    "file": "rules/behavior/impact/vssadmin_all_shadow_delete.yar",
+    "positive": "vssadmin.exe delete shadows /all /quiet",
+    "negative": [
+      "vssadmin.exe list shadows",
+      "vssadmin.exe delete shadows /oldest"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Wmic_Shadowcopy_Delete",
+    "file": "rules/behavior/impact/wmic_shadowcopy_delete.yar",
+    "positive": "wmic.exe shadowcopy delete",
+    "negative": [
+      "wmic.exe shadowcopy list brief",
+      "wmic.exe process list brief # shadowcopy delete"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_BootRecovery_Disable_IgnoreFailures",
+    "file": "rules/behavior/impact/bootrecovery_disable_ignorefailures.yar",
+    "positive": "bcdedit.exe /set {default} recoveryenabled no && bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures",
+    "negative": [
+      "bcdedit.exe /enum {default}",
+      "bcdedit.exe /set {default} recoveryenabled yes && bcdedit.exe /set {default} bootstatuspolicy displayallfailures"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Wbadmin_Zero_Backup_Versions",
+    "file": "rules/behavior/impact/wbadmin_zero_backup_versions.yar",
+    "positive": "wbadmin.exe delete backup -keepVersions:0 -quiet",
+    "negative": [
+      "wbadmin.exe get versions",
+      "wbadmin.exe delete backup -keepVersions:3 -quiet"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_Wbadmin_BackupCatalog_Delete",
+    "file": "rules/behavior/impact/wbadmin_backupcatalog_delete.yar",
+    "positive": "wbadmin.exe delete catalog -quiet",
+    "negative": [
+      "wbadmin.exe get versions",
+      "wbadmin.exe restore catalog -backupTarget:D:\\Backup"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven."
+  },
+  {
+    "rule": "ASPL_PowerShell_Base64_IEX",
+    "file": "rules/packers/powershell_base64_iex.yar",
+    "positive": "IEX ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(\"SU5FUlQgREVNTw==\")))",
+    "negative": [
+      "Write-Output ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(\"SU5FUlQgREVNTw==\")))",
+      "IEX $ordinaryText # FromBase64String reference"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match."
+  },
+  {
+    "rule": "ASPL_PowerShell_CharArray_IEX",
+    "file": "rules/packers/powershell_chararray_iex.yar",
+    "positive": "IEX ([char]73 + [char]78 + [char]69 + [char]82 + [char]84)",
+    "negative": [
+      "Write-Output ([char]73 + [char]78 + [char]69)",
+      "IEX $ordinaryText # [char] examples"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match."
+  },
+  {
+    "rule": "ASPL_JavaScript_Atob_Eval",
+    "file": "rules/packers/javascript_atob_eval.yar",
+    "positive": "eval(atob(\"SU5FUlQgREVNTw==\"))",
+    "negative": [
+      "console.log(atob(\"SU5FUlQgREVNTw==\"))",
+      "eval(ordinaryText); // atob decoding documentation"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match."
+  },
+  {
+    "rule": "ASPL_PowerShell_Gzip_Reflection_Load",
+    "file": "rules/packers/powershell_gzip_reflection_load.yar",
+    "positive": "$gzip = New-Object System.IO.Compression.GzipStream($input,[IO.Compression.CompressionMode]::Decompress); $gzip.CopyTo($output); [System.Reflection.Assembly]::Load($output.ToArray())",
+    "negative": [
+      "$gzip = New-Object System.IO.Compression.GzipStream($input,[IO.Compression.CompressionMode]::Decompress); $gzip.CopyTo($output); [IO.File]::WriteAllBytes(\"archive-copy.bin\",$output.ToArray())",
+      "[System.Reflection.Assembly]::Load($ordinaryBytes); # GzipStream Decompress CopyTo"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match."
+  }
+]

@@ -1,0 +1,16 @@
+Benign context corpus: ordinary administrative and runtime examples.
+regsvr32.exe local-component.dll
+rundll32.exe shell32.dll,Control_RunDLL
+mshta.exe local-help.hta
+Get-Service; Get-ScheduledTask
+Get-Process; Get-EventLog -LogName Application
+Get-MpComputerStatus
+LoadLibraryW GetProcAddress CreateProcessW VirtualAllocEx WriteProcessMemory CreateRemoteThread
+System.Drawing.Bitmap GetPixel R G B A
+Chrome User Data Login Data History Cookies
+SELECT url, title FROM urls
+CryptUnprotectData ProtectedData Unprotect
+tar -czf backup.tar.gz documents
+curl https://example.invalid/status
+python -m http.server 8000
+subprocess.run(['git', 'status'], check=True)

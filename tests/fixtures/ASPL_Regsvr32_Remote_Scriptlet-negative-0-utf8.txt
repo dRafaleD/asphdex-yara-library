@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+regsvr32
+[INERT_SEPARATOR]
+/i:https://
+[INERT_SEPARATOR]
+scrobj.dll

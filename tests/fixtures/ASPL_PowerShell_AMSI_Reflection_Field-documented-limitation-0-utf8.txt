@@ -1,0 +1,9 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+System.Management.Automation.AmsiUtils
+[INERT_SEPARATOR]
+amsiInitFailed
+[INERT_SEPARATOR]
+NonPublic,Static
+[INERT_SEPARATOR]
+SetValue(

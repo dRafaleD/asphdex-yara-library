@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+schtasks.exe /create /tn BackupDemo /tr "backup.exe" /sc daily

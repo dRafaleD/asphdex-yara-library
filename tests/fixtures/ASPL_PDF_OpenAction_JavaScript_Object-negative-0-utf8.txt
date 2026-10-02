@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+%PDF-
+[INERT_SEPARATOR]
+/OpenAction
+[INERT_SEPARATOR]
+/S /JavaScript

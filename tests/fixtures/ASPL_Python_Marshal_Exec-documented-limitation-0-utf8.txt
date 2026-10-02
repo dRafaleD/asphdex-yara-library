@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+Documentation quote only, never executed: INERT TEST DATA - DO NOT EXECUTE
+exec(
+[INERT_SEPARATOR]
+marshal.loads(
+[INERT_SEPARATOR]
+base64.b64decode(

@@ -1,0 +1,2 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+mciSendString("open fixture.wav type waveaudio"); mciSendString("play fixture")

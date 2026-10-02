@@ -1,0 +1,7 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT NEAR MISS - final required marker absent
+System.Management.Automation.AmsiUtils
+[INERT_SEPARATOR]
+amsiInitFailed
+[INERT_SEPARATOR]
+NonPublic,Static

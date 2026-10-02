@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+INERT BENIGN CONTEXT
+[Reflection.Assembly]::LoadFile( local-tool.dll GetTypes(

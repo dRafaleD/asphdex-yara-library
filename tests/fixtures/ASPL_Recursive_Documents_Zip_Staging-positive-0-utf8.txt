@@ -1,0 +1,3 @@
+INERT STATIC ANALYSIS FIXTURE; DO NOT EXECUTE.
+REFERENCE DOCUMENT ONLY
+Get-ChildItem Documents -Recurse -Filter *.docx | Compress-Archive -DestinationPath fixture.zip
