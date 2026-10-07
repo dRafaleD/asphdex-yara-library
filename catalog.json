@@ -124,6 +124,48 @@
       }
     },
     {
+      "id": "ASPL_Chromium_CDP_Cookie_Dump",
+      "file": "rules/behavior/credential-access/chromium_cdp_cookie_dump.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://www.microsoft.com/en-us/security/blog/2026/07/31/captivecrunch-midnight-blizzard-targets-travelers-worldwide-for-malware-delivery-and-credential-theft/",
+        "license": "ISC",
+        "description": "Chromium remote-debugging launch artifacts appear near the CDP Network.getAllCookies method.",
+        "category": "credential-access",
+        "severity": "high",
+        "confidence": "high",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Browser automation, QA, debugging and security tools may legitimately use Chrome DevTools Protocol and cookie APIs. Static text does not prove cookie theft or malicious intent. Alternate CDP clients, renamed browsers, fragmented strings and other cookie methods may evade it.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1539"
+      }
+    },
+    {
+      "id": "ASPL_Chromium_Cookie_MasterKey_Query",
+      "file": "rules/behavior/credential-access/chromium_cookie_masterkey_query.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://www.microsoft.com/en-us/security/blog/2026/07/31/captivecrunch-midnight-blizzard-targets-travelers-worldwide-for-malware-delivery-and-credential-theft/",
+        "license": "ISC",
+        "description": "Chromium Local State encryption-key access appears near a cookie database query.",
+        "category": "credential-access",
+        "severity": "high",
+        "confidence": "high",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Browser migration, backup, forensic and security tools can legitimately access these artifacts. Static proximity does not prove decryption, collection, exfiltration, or malicious intent. Query variations, ABE-specific implementations, aliases and encrypted strings may evade this rule.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1539"
+      }
+    },
+    {
       "id": "ASPL_Chromium_Login_Database_Query",
       "file": "rules/behavior/credential-access/chromium_login_database_query.yar",
       "metadata": {
@@ -163,6 +205,27 @@
         "limitation": "Clipboard read and file-value append artifacts; productivity scripts can match. Static artifact only; contextual markers must follow one anchor within 4096 bytes. Exact reference documents are known positives. No execution or call-order proof. Excludes files over 2 MiB and encoded or variant spellings.",
         "minimum_yara": "4.5.0",
         "attack_id": "T1115"
+      }
+    },
+    {
+      "id": "ASPL_Cloudflared_Local_Tunnel",
+      "file": "rules/behavior/remote-access/cloudflared_local_tunnel.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://www.cisa.gov/sites/default/files/2025-03/aa25-071a-stopransomware-medusa-ransomware.pdf",
+        "license": "ISC",
+        "description": "Cloudflared tunnel command exposes a local service through a remote tunnel.",
+        "category": "remote-access",
+        "severity": "medium",
+        "confidence": "high",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Cloudflare Tunnel is a legitimate administration and development tool. This rule identifies a local-service tunnel command only and does not prove unauthorized access, command-and-control, or malicious intent. Option reordering, config-file use, named tunnels and non-loopback targets may evade it.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1219"
       }
     },
     {
@@ -469,6 +532,27 @@
         "scope": "static-artifact",
         "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
         "minimum_yara": "4.5.0"
+      }
+    },
+    {
+      "id": "ASPL_NPM_Install_Hook_Remote_Fetch",
+      "file": "rules/behavior/execution/npm_install_hook_remote_fetch.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/",
+        "license": "ISC",
+        "description": "npm lifecycle install hook invokes a remote retrieval utility; analyst review required.",
+        "category": "scripted-execution",
+        "severity": "high",
+        "confidence": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Install hooks legitimately download platform binaries and assets. Static text does not prove package compromise, payload execution, or malicious intent. Alternate package managers, helper scripts, variable-built URLs, aliases, and encoded commands may evade this narrow signature.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1195.002"
       }
     },
     {
@@ -1018,6 +1102,27 @@
         "limitation": "System inventory classes with JSON file staging; normal fleet inventory can match. Static artifact only; contextual markers must follow one anchor within 4096 bytes. Exact reference documents are known positives. No execution or call-order proof. Excludes files over 2 MiB and encoded or variant spellings.",
         "minimum_yara": "4.5.0",
         "attack_id": "T1082"
+      }
+    },
+    {
+      "id": "ASPL_VSCode_Task_Remote_Shell",
+      "file": "rules/behavior/execution/vscode_task_remote_shell.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://socket.dev/supply-chain-attacks/polinrider",
+        "license": "ISC",
+        "description": "VS Code shell task contains a remote retrieval command in task configuration.",
+        "category": "scripted-execution",
+        "severity": "high",
+        "confidence": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Developer tasks can legitimately download dependencies or test resources. This detects textual task configuration only and does not prove automatic execution, compromise, or malicious intent. Split commands, variables, helper scripts, alternate task providers, and encoded URLs may evade it.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1059"
       }
     },
     {
