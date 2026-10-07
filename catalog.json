@@ -24,13 +24,13 @@
       }
     },
     {
-      "id": "ASPL_ASP_Request_WScript_Exec",
-      "file": "rules/behavior/webshell/asp_request_wscript_exec.yar",
+      "id": "ASPL_ASPNET_Request_Process_Start",
+      "file": "rules/behavior/webshell/aspnet_request_process_start.yar",
       "metadata": {
         "author": "AsphDex contributors",
         "source": "https://attack.mitre.org/techniques/T1505/003/",
         "license": "ISC",
-        "description": "Nearby textual artifacts of asp request wscript exec; analyst review required.",
+        "description": "Nearby textual artifacts of aspnet request process start; analyst review required.",
         "category": "remote-command",
         "severity": "medium",
         "confidence": "medium",
@@ -44,13 +44,13 @@
       }
     },
     {
-      "id": "ASPL_ASPNET_Request_Process_Start",
-      "file": "rules/behavior/webshell/aspnet_request_process_start.yar",
+      "id": "ASPL_ASP_Request_WScript_Exec",
+      "file": "rules/behavior/webshell/asp_request_wscript_exec.yar",
       "metadata": {
         "author": "AsphDex contributors",
         "source": "https://attack.mitre.org/techniques/T1505/003/",
         "license": "ISC",
-        "description": "Nearby textual artifacts of aspnet request process start; analyst review required.",
+        "description": "Nearby textual artifacts of asp request wscript exec; analyst review required.",
         "category": "remote-command",
         "severity": "medium",
         "confidence": "medium",
@@ -413,26 +413,6 @@
       }
     },
     {
-      "id": "ASPL_JavaScript_Atob_Eval",
-      "file": "rules/packers/javascript_atob_eval.yar",
-      "metadata": {
-        "author": "AsphDex contributors",
-        "source": "https://attack.mitre.org/techniques/T1027/",
-        "license": "ISC",
-        "description": "JavaScript eval directly consumes a base64-decoded literal",
-        "category": "obfuscation",
-        "severity": "low",
-        "confidence": "low",
-        "rule_version": "1.0.0",
-        "created": "2026-10-02",
-        "modified": "2026-10-02",
-        "status": "experimental",
-        "scope": "static-artifact",
-        "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match.",
-        "minimum_yara": "4.5.0"
-      }
-    },
-    {
       "id": "ASPL_JSP_Request_Runtime_Exec",
       "file": "rules/behavior/webshell/jsp_request_runtime_exec.yar",
       "metadata": {
@@ -449,6 +429,26 @@
         "status": "experimental",
         "scope": "static-artifact",
         "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
+        "minimum_yara": "4.5.0"
+      }
+    },
+    {
+      "id": "ASPL_JavaScript_Atob_Eval",
+      "file": "rules/packers/javascript_atob_eval.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://attack.mitre.org/techniques/T1027/",
+        "license": "ISC",
+        "description": "JavaScript eval directly consumes a base64-decoded literal",
+        "category": "obfuscation",
+        "severity": "low",
+        "confidence": "low",
+        "rule_version": "1.0.0",
+        "created": "2026-10-02",
+        "modified": "2026-10-02",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Obfuscation artifact only, not a packer signature or malware verdict. Data flow and decoded content are not validated. Quotes and legitimate generators may match.",
         "minimum_yara": "4.5.0"
       }
     },
@@ -474,6 +474,26 @@
       }
     },
     {
+      "id": "ASPL_MSBuild_Inline_Task_Assembly",
+      "file": "rules/behavior/exploit-artifacts/msbuild_inline_task_assembly.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://attack.mitre.org/techniques/T1127/001/",
+        "license": "ISC",
+        "description": "Nearby textual artifacts of msbuild inline task assembly; analyst review required.",
+        "category": "scripted-execution",
+        "severity": "medium",
+        "confidence": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-02",
+        "modified": "2026-10-02",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature. Document/build action artifact, not a validated vulnerability or exploit.",
+        "minimum_yara": "4.5.0"
+      }
+    },
+    {
       "id": "ASPL_Mci_Audio_Record_Save",
       "file": "rules/behavior/collection/mci_audio_record_save.yar",
       "metadata": {
@@ -495,26 +515,6 @@
       }
     },
     {
-      "id": "ASPL_MSBuild_Inline_Task_Assembly",
-      "file": "rules/behavior/exploit-artifacts/msbuild_inline_task_assembly.yar",
-      "metadata": {
-        "author": "AsphDex contributors",
-        "source": "https://attack.mitre.org/techniques/T1127/001/",
-        "license": "ISC",
-        "description": "Nearby textual artifacts of msbuild inline task assembly; analyst review required.",
-        "category": "scripted-execution",
-        "severity": "medium",
-        "confidence": "medium",
-        "rule_version": "1.0.0",
-        "created": "2026-10-02",
-        "modified": "2026-10-02",
-        "status": "experimental",
-        "scope": "static-artifact",
-        "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature. Document/build action artifact, not a validated vulnerability or exploit.",
-        "minimum_yara": "4.5.0"
-      }
-    },
-    {
       "id": "ASPL_Mshta_Remote_HTA",
       "file": "rules/behavior/execution/mshta_remote_hta.yar",
       "metadata": {
@@ -532,6 +532,27 @@
         "scope": "static-artifact",
         "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
         "minimum_yara": "4.5.0"
+      }
+    },
+    {
+      "id": "ASPL_NPM_Install_Hook_Remote_Fetch",
+      "file": "rules/behavior/execution/npm_install_hook_remote_fetch.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/",
+        "license": "ISC",
+        "description": "npm lifecycle install hook invokes a remote retrieval utility; analyst review required.",
+        "category": "scripted-execution",
+        "severity": "high",
+        "confidence": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-07",
+        "modified": "2026-10-07",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Install hooks legitimately download platform binaries and assets. Static text does not prove package compromise, payload execution, or malicious intent. Alternate package managers, helper scripts, variable-built URLs, aliases, and encoded commands may evade this narrow signature.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1195.002"
       }
     },
     {
@@ -573,27 +594,6 @@
         "scope": "static-artifact",
         "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
         "minimum_yara": "4.5.0"
-      }
-    },
-    {
-      "id": "ASPL_NPM_Install_Hook_Remote_Fetch",
-      "file": "rules/behavior/execution/npm_install_hook_remote_fetch.yar",
-      "metadata": {
-        "author": "AsphDex contributors",
-        "source": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/",
-        "license": "ISC",
-        "description": "npm lifecycle install hook invokes a remote retrieval utility; analyst review required.",
-        "category": "scripted-execution",
-        "severity": "high",
-        "confidence": "medium",
-        "rule_version": "1.0.0",
-        "created": "2026-10-07",
-        "modified": "2026-10-07",
-        "status": "experimental",
-        "scope": "static-artifact",
-        "limitation": "Install hooks legitimately download platform binaries and assets. Static text does not prove package compromise, payload execution, or malicious intent. Alternate package managers, helper scripts, variable-built URLs, aliases, and encoded commands may evade this narrow signature.",
-        "minimum_yara": "4.5.0",
-        "attack_id": "T1195.002"
       }
     },
     {
@@ -1105,27 +1105,6 @@
       }
     },
     {
-      "id": "ASPL_Vault_Enumeration_Read_Chain",
-      "file": "rules/behavior/credential-access/vault_enumeration_read_chain.yar",
-      "metadata": {
-        "author": "AsphDex contributors",
-        "source": "https://attack.mitre.org/techniques/T1555/004/",
-        "license": "ISC",
-        "description": "Vault enumeration with retrieval capabilities; SDK references and credential management can match.",
-        "category": "credential-access",
-        "confidence": "low",
-        "severity": "medium",
-        "rule_version": "1.0.0",
-        "created": "2026-10-02",
-        "modified": "2026-10-02",
-        "status": "experimental",
-        "scope": "static-artifact",
-        "limitation": "Vault enumeration with retrieval capabilities; SDK references and credential management can match. Static artifact only; contextual markers must follow one anchor within 4096 bytes. Exact reference documents are known positives. No execution or call-order proof. Excludes files over 2 MiB and encoded or variant spellings.",
-        "minimum_yara": "4.5.0",
-        "attack_id": "T1555.004"
-      }
-    },
-    {
       "id": "ASPL_VSCode_Task_Remote_Shell",
       "file": "rules/behavior/execution/vscode_task_remote_shell.yar",
       "metadata": {
@@ -1147,6 +1126,27 @@
       }
     },
     {
+      "id": "ASPL_Vault_Enumeration_Read_Chain",
+      "file": "rules/behavior/credential-access/vault_enumeration_read_chain.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://attack.mitre.org/techniques/T1555/004/",
+        "license": "ISC",
+        "description": "Vault enumeration with retrieval capabilities; SDK references and credential management can match.",
+        "category": "credential-access",
+        "confidence": "low",
+        "severity": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-02",
+        "modified": "2026-10-02",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Vault enumeration with retrieval capabilities; SDK references and credential management can match. Static artifact only; contextual markers must follow one anchor within 4096 bytes. Exact reference documents are known positives. No execution or call-order proof. Excludes files over 2 MiB and encoded or variant spellings.",
+        "minimum_yara": "4.5.0",
+        "attack_id": "T1555.004"
+      }
+    },
+    {
       "id": "ASPL_Vssadmin_All_Shadow_Delete",
       "file": "rules/behavior/impact/vssadmin_all_shadow_delete.yar",
       "metadata": {
@@ -1163,6 +1163,26 @@
         "status": "experimental",
         "scope": "static-artifact",
         "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven.",
+        "minimum_yara": "4.5.0"
+      }
+    },
+    {
+      "id": "ASPL_WSH_HTTP_Stream_Shell",
+      "file": "rules/behavior/execution/wsh_http_stream_shell.yar",
+      "metadata": {
+        "author": "AsphDex contributors",
+        "source": "https://attack.mitre.org/techniques/T1059/007/",
+        "license": "ISC",
+        "description": "Nearby textual artifacts of wsh http stream shell; analyst review required.",
+        "category": "scripted-execution",
+        "severity": "medium",
+        "confidence": "medium",
+        "rule_version": "1.0.0",
+        "created": "2026-10-02",
+        "modified": "2026-10-02",
+        "status": "experimental",
+        "scope": "static-artifact",
+        "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
         "minimum_yara": "4.5.0"
       }
     },
@@ -1285,26 +1305,6 @@
         "status": "experimental",
         "scope": "static-artifact",
         "limitation": "Bounded same-line command artifact only. Comments, quoted examples and legitimate administration may match. Execution and malicious intent are not proven.",
-        "minimum_yara": "4.5.0"
-      }
-    },
-    {
-      "id": "ASPL_WSH_HTTP_Stream_Shell",
-      "file": "rules/behavior/execution/wsh_http_stream_shell.yar",
-      "metadata": {
-        "author": "AsphDex contributors",
-        "source": "https://attack.mitre.org/techniques/T1059/007/",
-        "license": "ISC",
-        "description": "Nearby textual artifacts of wsh http stream shell; analyst review required.",
-        "category": "scripted-execution",
-        "severity": "medium",
-        "confidence": "medium",
-        "rule_version": "1.0.0",
-        "created": "2026-10-02",
-        "modified": "2026-10-02",
-        "status": "experimental",
-        "scope": "static-artifact",
-        "limitation": "Text artifacts only. Comments, documentation, and authorized tools may match. Byte proximity does not prove execution, data flow, exploit success, or malware identity. Literal spacing, obfuscation, aliases, and other encodings may evade this narrow signature.",
         "minimum_yara": "4.5.0"
       }
     },
