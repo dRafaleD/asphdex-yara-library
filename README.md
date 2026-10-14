@@ -7,7 +7,7 @@ are checked with both YARA and YARA-X. This repository is separate from the
 
 ## Status
 
-**Experimental v0.1.0.** The initial collection contains 60 static artifact rules
+**Experimental v0.1.0.** The initial collection contains 65 static artifact rules
 across execution, webshells, exploit artifacts, credential access, collection,
 remote access, persistence, defense evasion, impact, and script obfuscation.
 These are behavior artifacts, not verified malware-family signatures. A match
