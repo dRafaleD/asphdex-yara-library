@@ -5,9 +5,9 @@ file review. Rules are grouped by technique, ship with inert text fixtures, and
 are checked with both YARA and YARA-X. This repository is separate from the
 [AsphDex desktop application](https://github.com/dRafaleD/Malware-analysis-AsphDex).
 
-## Status
+## Rule coverage
 
-**Experimental v0.1.0.** The initial collection contains 60 static artifact rules
+The v0.1.0 collection contains 60 static artifact rules
 across execution, webshells, exploit artifacts, credential access, collection,
 remote access, persistence, defense evasion, impact, and script obfuscation.
 These are behavior artifacts, not verified malware-family signatures. A match
@@ -49,7 +49,7 @@ Fixture content is only encoded and scanned as bytes. No sample is executed and
 no live malware is downloaded. Results appear in `outputs/validation.json`.
 
 `python scripts/library.py build` creates a combined `.yar`, category `.yar`
-bundles, a checksum manifest and an experimental ZIP under `dist/`. For native
+bundles, a checksum manifest and a ZIP under `dist/`. For native
 YARA, scan with `yara main.yar file-to-inspect` from the repository root, or use
 the standalone combined bundle. Rule regexes exceed the browser JS fallback's
 capabilities; AsphDex must report unsupported rules as limited coverage.
